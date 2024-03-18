@@ -1,0 +1,7 @@
+version: '3.2'
+services:
+     myservice:
+        image: devopsdockeruh/simple-web-service
+        command: ["server"]
+        ports:
+          - 8080:8080

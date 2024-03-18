@@ -1,0 +1,10 @@
+FROM ubuntu:20.04
+
+WORKDIR /usr/src/app
+
+COPY curll.sh .
+
+RUN chmod +x curll.sh
+RUN apt-get -y update && apt-get -y install curl
+
+ENTRYPOINT ["./curll.sh"]

@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+    db:
+      image: postgres:13.2-alpine
+      restart: unless-stopped
+      environment:
+        POSTGRES_PASSWORD: postgres
+      container_name: db_exercise
+
+    frontend:
+        image: front-node-project
+        ports:
+          - 5000:5000
+        container_name: frontend
+        
+    backend:
+        image: back-go-project
+        environment:
+          - REDIS_HOST=redis
+          - POSTGRES_PASSWORD=postgres
+          - POSTGRES_HOST=db
+          - POSTGRES_USER=postgres
+          - POSTGRES_DATABASE=postgres
+        ports:
+          - 8080:8080
+        container_name: backend  
+
+    redis:
+        image: redis:alpine
+        container_name: redis

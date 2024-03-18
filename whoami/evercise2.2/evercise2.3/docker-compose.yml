@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+    frontend:
+        image: front-node-project
+        ports:
+          - 5000:5000
+        container_name: frontend
+        
+    backend:
+        image: back-go-project
+        ports:
+          - 8080:8080
+        container_name: backend  
